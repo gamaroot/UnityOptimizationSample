@@ -1,7 +1,5 @@
-﻿using UnityEngine;
-using System.Diagnostics;
-using System.Numerics;
-using TMPro;
+﻿using System.Diagnostics;
+using UnityEngine;
 
 public class CachingSample : MonoBehaviour
 {

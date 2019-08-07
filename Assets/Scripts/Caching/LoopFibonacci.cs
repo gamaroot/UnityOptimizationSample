@@ -1,25 +1,18 @@
-﻿using System.Threading.Tasks;
-
-public class LoopFibonacci
+﻿public class LoopFibonacci
 {
-
-
     public static int CalculateFibonacciSum(int index)
     {
-        
+        int sum = 0;
 
-            int sum = 0;
-  
-           for (int i = 0; i < index; ++i)
-            {
-                 sum+= CalculateFibonacci(i);
+        for (int i = 0; i < index; ++i)
+        {
+            sum += CalculateFibonacci(i);
 
-            }
+        }
 
-            return sum;
-        
-        
+        return sum;
     }
+
     public static int CalculateFibonacci(int index)
     {
         if (index == 0) return 0;
@@ -29,7 +22,7 @@ public class LoopFibonacci
         int previous = 0;
         int currentValue = 0;
 
-        for (int iterationIndex = 0; iterationIndex < index- 1; iterationIndex++)
+        for (int iterationIndex = 0; iterationIndex < index - 1; iterationIndex++)
         {
             result = previous + currentValue;
 

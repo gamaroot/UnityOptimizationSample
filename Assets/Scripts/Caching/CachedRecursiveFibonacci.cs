@@ -6,7 +6,7 @@
         int result = -1;
         for (int iterationIndex = 0; iterationIndex < index; iterationIndex++)
         {
-            result = CalculateFibonacciRec(iterationIndex, result);
+            result = CalculateRecursiveFibonacci(iterationIndex, result);
             sum += result;
         }
 
@@ -24,14 +24,13 @@
             return 1;
         }
 
-        var b = CalculateFibonacciRec(index - 2,-1);
-        var a =  CalculateFibonacciRec(index-1,b);
+        int b = CalculateRecursiveFibonacci(index - 2);
+        int a = CalculateRecursiveFibonacci(index - 1, b);
 
-        
-        return a+b;
+        return a + b;
     }
 
-    private static int CalculateFibonacciRec(int index, int cached = -1)
+    private static int CalculateRecursiveFibonacci(int index, int cachedPreviousValue = -1)
     {
         if (index == 0)
         {
@@ -43,9 +42,9 @@
         }
         else
         {
-            int previous = cached == -1 ? CalculateFibonacci(index - 1) : cached;
+            int previousValue = cachedPreviousValue == -1 ? CalculateFibonacci(index - 1) : cachedPreviousValue;
 
-            return previous + CalculateFibonacci(index - 2);
+            return previousValue + CalculateFibonacci(index - 2);
         }
     }
 }

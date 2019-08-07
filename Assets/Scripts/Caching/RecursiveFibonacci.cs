@@ -1,12 +1,16 @@
-﻿public class RecursiveFibonacci
+﻿using System.Threading;
+using System.Threading.Tasks;
+
+public class RecursiveFibonacci
 {
-    public static int CalculateFibonacciSum(int index)
+    public static int CalculateFibonacciSum(int fibonacciIndex)
     {
         int sum = 0;
-        for (int iterationIndex = 0; iterationIndex < index; iterationIndex++)
+        Parallel.For(0, fibonacciIndex, (iterationIndex) =>
         {
-            sum += CalculateFibonacci(iterationIndex);
-        }
+            int toAdd = CalculateFibonacci(iterationIndex);
+            Interlocked.Add(ref sum, toAdd);
+        });
 
         return sum;
     }
